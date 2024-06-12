@@ -1,0 +1,12 @@
+<form [formGroup]="echangeForm" (ngSubmit)="onSubmit()">
+  <label for="montant">Montant:</label>
+  <input id="montant" formControlName="montant" type="number" />
+
+  <label for="state">State:</label>
+  <input id="state" formControlName="state" type="text" />
+
+  <label for="livrer">Livrer:</label>
+  <input id="livrer" formControlName="livrer" type="checkbox" />
+
+  <button type="submit" [disabled]="!echangeForm.valid">Save</button>
+</form>

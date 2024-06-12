@@ -1,0 +1,120 @@
+<div class="page">
+  <nav>
+    <div id="logo">
+      <img src="/assets/logo.png" width="180" height="90" />
+    </div>
+    <ul class="navigation-menu">
+      <li><a href="/client">Dashboard</a></li>
+      <li class="active"><a href="/af">Appel de Fond</a></li>
+      <li><a href="/lv">Levee de Fond</a></li>
+      <li><a href="/mad">Mise à Disposition</a></li>
+      <li><a href="/echange">Echange</a></li>
+    </ul>
+    <div class="projects-section-header">
+      <h2 class="time"> {{ currentDate }}</h2>
+    </div>
+    <button class="notification-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-bell">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+      </svg>
+    </button>
+    <button class="profile-btn" (click)="toggleProfilePopup()">
+      <img src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" />
+      <span class="name">{{ userName }} {{ lastName }}</span>
+    </button>
+    <div class="profile-popup" *ngIf="showProfilePopup">
+      <ul>
+        <li><a href="#" (click)="goToProfile()">Profile</a></li>
+        <li><a href="#" (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="sec2">
+    <div>
+      <p class="title">Ajouter a votre Appel du fond</p><br>
+    </div>
+  <div class="activities">
+    <form class="form" [formGroup]="appeldufondForm">
+      <div class="form-info">
+        <div class="tables">
+        <table>
+          <tr>
+            <th>Code Banque</th>
+            <td>07</td>
+          </tr>
+          <tr>
+            <th>Code Agence</th>
+            <td>04</td>
+          </tr>
+          <tr>
+            <th>Region</th>
+            <td>Tunis</td>
+          </tr>
+        </table>
+      </div>
+    <div class="tab2">
+        <table>
+          <tr>
+            <th>Banque</th>
+            <td>AMEN BANK</td>
+          </tr>
+          <tr>
+            <th>Agence</th>
+            <td>MOHAMED V</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>Agencemh5ab&#64;gmail.com</td>
+          </tr>
+        </table>
+      </div>
+        </div>
+      <div class="form2">
+        <div class="row">
+          <div class="form-group">
+            <label for="B50">Billet De 50:</label>
+            <input type="number" id="B50" formControlName="B50" placeholder="Entrez la valeur de B50" required
+              (input)="calculateTotal()" (change)="validateInput($event, 'B50')" min="0">
+          </div>
+          <div class="form-group">
+            <label for="B20">Billet De 20:</label>
+            <input type="number" id="B20" formControlName="B20" placeholder="Entrez la valeur de B20" required
+              (input)="calculateTotal() " (change)="validateInput($event, 'B20')" min="0">
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="B10">Billet De 10:</label>
+            <input type="number" id="B10" formControlName="B10" placeholder="Entrez la valeur de B10" required
+              (input)="calculateTotal()" (change)="validateInput($event, 'B10')"min="0">
+          </div>
+          <div class="form-group">
+            <label for="B5">Billet De 05:</label>
+            <input type="number" id="B5" formControlName="B5" placeholder="Entrez la valeur de B5" required
+              (input)="calculateTotal()" (change)="validateInput($event, 'B5')" min="0">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="monnaie">Monnaie:</label>
+            <input type="number" id="monnaie" formControlName="monnaie" placeholder="Entrez la valeur de la monnaie"
+              required (input)="calculateTotal()" (change)="validateInput($event, 'monnaie')" min="0">
+          </div>
+          <div class="form-group">
+            <label for="total">Total:</label>
+            <input type="number" id="total" formControlName="total" readonly>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button class="submit" type="submit" (click)="submitAppelFond()">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>

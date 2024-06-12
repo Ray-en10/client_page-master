@@ -1,0 +1,27 @@
+<nav>
+  <div id="logo">
+    <img src="/assets/logo.png" width="180" height="90" />
+  </div>
+  <ul class="navigation-menu">
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/presentation">Présentation</a></li>
+    <li><a>Ressources</a>
+      <ul class="subnav" [class.active]="currentIndex === 2">
+        <li class="subli"><a (click)="toggleSubNav(0)">Humain</a></li>
+        <li><a (click)="toggleSubNav(1)">Matériels</a></li>
+      </ul>
+    </li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="utility">
+    <button class="log" (click)="toggleLoginCard()">
+      <span>Rejoignez</span>
+    </button>
+    <div class="login-card" [ngClass]="{'show': isLoginCardVisible}">
+      <button class="normal-signin" (click)="navigateToLogin()">Se connecter</button>
+      <div class="instruction-text">Vous n'avez pas de compte?</div>
+      <button class="create-account" (click)="navigateToSignup()">Créer un compte</button>
+    </div>
+  </div>
+</nav>

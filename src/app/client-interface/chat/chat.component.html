@@ -1,0 +1,44 @@
+<!-- chat.component.html -->
+<div class="chat-widget">
+  <div class="chat-bubble" (click)="toggleChat()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M160 368c26.5 0 48 21.5 48 48v16l72.5-54.4c8.3-6.2 18.4-9.6 28.8-9.6H448c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16h96zm48 124l-.2 .2-5.1 3.8-17.1 12.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3V474.7v-6.4V468v-4V416H112 64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0H448c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H309.3L208 492z"/></svg>
+  </div>
+  <div class="mask" [class.open]="isChatOpen">
+    <div class="container">
+      <section class="list" aria-hidden="true"></section>
+      <section class="conversation" aria-hidden="false">
+        <header class="header">
+          <div class="header__info">
+            <span class="header__status"></span>
+            <span class="header__name">Admin</span>
+          </div>
+          <div class="header__actions">
+            <button class="btn btn--close" tabindex="0" title="Close chat" (click)="toggleChat()">
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="messages">
+          <div
+            class="messages__bubble"
+            [ngClass]="{'messages__bubble--right': message.senderAdmin, 'messages__bubble--left': !message.senderAdmin}"
+            *ngFor="let message of messages">
+            <span class="messages__text">{{ message.content }}</span>
+          </div>
+        </div>
+        <form class="footer" (submit)="sendMessage($event, newMessage.value); newMessage.value=''">
+          <input type="text" class="footer__input" #newMessage placeholder="envoyez un message...">
+          <button type="submit" class="btn btn--send" title="Send message" tabindex="0">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<script>
+  var global = window;
+</script>
+
+
+<div class="navbar">
+  <app-navbar></app-navbar>
+</div>
+
+<div class="container">
+  <div class="restpage">
+    <app-accueil></app-accueil>
+  </div>
+</div>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<div class="row mt-5 d-flex justify-content-center">
+  <div class="col-4">
+    <button class="btn btn-primary" (click)="openSpinner()"> open spinner</button>
+  </div>
+</div>
+<div class="footer">
+<app-footer></app-footer>
+</div>

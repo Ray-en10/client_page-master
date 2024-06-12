@@ -1,0 +1,132 @@
+<app-navbar></app-navbar>
+<div class="page">
+  <section class="sec1">
+    <div class="bond">
+      <div class="bg">
+        <h3>Présentation</h3>
+        <p>Home / Présentation</p>
+      </div>
+    </div>
+    <div class="present">
+      <div class="custom-line"></div>
+      <img src="https://tunisie-securite.com/wp-content/uploads/2020/07/rD20B74aeP.jpg" class="assetlog">
+      <h4>Principes et définitions</h4>
+      <p>{{ deftxt }}</p>
+      <button class="plus_btn">
+        <span>Contact</span>
+      </button>
+    </div>
+  </section>
+  <section class="sec2">
+    <div class="bond2">
+      <div class="bg2">
+        <div class="info">
+          <img src="/assets/log.png" />
+          <h3>Tunisie Sécurité</h3>
+          <p>TRANSPORT DE FONDS ET DE VALEURS ...Sécurité Assurée</p>
+          <button class="btn">
+            <span>CONTACTEZ-NOUS</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec3">
+    <div class="custom-line3"></div>
+    <h4>Les Principaux Clients De TUNISIE SECURITE</h4>
+    <div class="cardcli" #clientContainerRef (mousedown)="onMouseDown($event)" (mouseleave)="onMouseLeave()"
+      (mouseup)="onMouseUp()" (mousemove)="onMouseMove($event)">
+      <div class="client-card" *ngFor="let client of clients">
+        <img [src]="client.image" alt="{{ client.title }}">
+      </div>
+    </div>
+  </section>
+  <section class="sec4">
+    <div class="pt1">
+      <div class="custom-line2"></div>
+      <img src="https://tunisie-securite.com/wp-content/uploads/2020/07/bEbXopEtRZ.jpg" class="moneypic">
+      <h4>TRANSPORT DE FONDS ET DE VALEURS</h4><h4>...Sécurité Assurée</h4>
+      <div class="buts">
+        <button class="plus_btn2" (click)="toggleContent(0)" [class.active]="currentIndex === 0">
+          <span>Tunisie Sécurité</span>
+        </button>
+        <button class="plus_btn2" (click)="toggleContent(1)" [class.active]="currentIndex === 1">
+          <span>Répartition du Capital</span>
+        </button>
+        <ul *ngIf="currentIndex === 0" class="content" [class.active]="currentIndex === 0">
+          <li>Date de création : 16 juillet 2009</li>
+          <li>Adresse : 29 rue Madinet Ennajaf 2036-Sidi Fraj, LA SOUKRA, ARIANA</li>
+          <li>Tél : 70 858 132 / Fax : 70 858 147</li>
+          <li>Site WEB : www.tunisie-securite.com</li>
+          <li>Président du conseil : KHALED BABOU</li>
+          <li>Principaux Dirigeants : AHMED BEN YOUSSEF & HATEM CHAABANI</li>
+          <li>Capital : 1 500 000 dinars</li>
+        </ul>
+        <ul *ngIf="currentIndex === 1" class="content" [class.active]="currentIndex === 1">
+          <li>Société KAPITAL BUSINESS INVESTTEMENT</li>
+          <li>Société MENINX HOLDING</li>
+          <li>Société TUNISIE COURTAGE</li>
+          <li>KHALED BABOU</li>
+          <li>KAMEL BEDOUI</li>
+          <li>KHALED BOURICHA</li>
+          <li>MEHDI TAMARZISTE</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec5">
+    <div class="pt2">
+      <div class="custom-line3"></div>
+      <h4>Tunisie Sécurité ...Là où vous avez besoin</h4>
+      <div class="tab">
+        <table class="regional-centers-table">
+          <thead>
+            <tr>
+              <th>Centre s régionaux TS</th>
+              <th>Zone de couverture des centres régionaux de TS</th>
+              <th>Effectif par centre</th>
+              <th>Nbre de véhicules par centre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gabes</td>
+              <td>Gabes + Sud</td>
+              <td>10</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>Nabeul</td>
+              <td>Nabeul + Cap Bon</td>
+              <td>5</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Sfax</td>
+              <td>Sfax + Centre</td>
+              <td>11</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>Tunis</td>
+              <td>Tunis + Nord+Grand Tunis</td>
+              <td>48</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>Sousse</td>
+              <td>Sousse + Sahel</td>
+              <td>17</td>
+              <td>8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>

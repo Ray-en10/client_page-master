@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+<div class="app-container">
+  <div class="app-content">
+<app-sidebar></app-sidebar>
+    <div class="projects-section">
+      <div class="projects-section-line">
+        <div class="projects-status">
+          <div class="item-status">
+            <span class="status-number">45</span>
+            <span class="status-type">Encours</span>
+          </div>
+          <div class="item-status">
+            <span class="status-number">24</span>
+            <span class="status-type">Total des demandes</span>
+          </div>
+        </div>
+        <div class="view-actions">
+          <button class="view-btn list-view" title="List View">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-list">
+              <line x1="8" y1="6" x2="21" y2="6" />
+              <line x1="8" y1="12" x2="21" y2="12" />
+              <line x1="8" y1="18" x2="21" y2="18" />
+              <line x1="3" y1="6" x2="3.01" y2="6" />
+              <line x1="3" y1="12" x2="3.01" y2="12" />
+              <line x1="3" y1="18" x2="3.01" y2="18" />
+            </svg>
+          </button>
+          <button class="view-btn grid-view active" title="Grid View">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-grid">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-boxes jsGridView">
+        <div class="project-box-wrapper">
+          <div (click)="nav1()" class="project-box bx1"
+            style="position: relative; background-image: url('https://img.freepik.com/vecteurs-premium/icone-encaissement-illustration-3d-collection-bancaire-icone-3d-encaissement-creatif-pour-modeles-conception-sites-web-infographies-plus-encore_676904-258.jpg?w=740'); background-size: cover; background-position: center;">
+            <div class="overlay">
+            </div>
+            <p class="box-content-header">Appel de Fond</p>
+          </div>
+        </div>
+        <div (click)="nav2()" class="project-box-wrapper">
+          <div class="project-box bx1"
+            style="position: relative; background-image: url('https://img.freepik.com/vecteurs-libre/livreur-portant-maks-medicaux_23-2148503788.jpg?w=996&t=st=1713813684~exp=1713814284~hmac=b172e8261ede0913cffa2736221207cbc6f78880f221f50413f5f27295e35975'); background-size: cover; background-position: center;">
+            <div class="overlay">
+            </div>
+            <p class="box-content-header">Levee du Fond</p>
+          </div>
+        </div>
+        <div (click)="nav3()" class="project-box-wrapper">
+          <div class="project-box bx1"
+            style="position: relative; background-image: url('https://img.freepik.com/vecteurs-libre/concept-livraison-design-plat-dessine-main_23-2149154713.jpg?w=740&t=st=1713814309~exp=1713814909~hmac=ad5c479d27ddd7749adf80f712e906c5cd15db9b09241ceacf03cc29e0bde73b'); background-size: cover; background-position: center;">
+            <div class="overlay">
+            </div>
+            <p class="box-content-header">Mise à Disposition</p>
+          </div>
+        </div>
+        <div (click)="nav4()" class="project-box-wrapper">
+          <div class="project-box bx1"
+            style="position: relative; background-image: url('https://img.freepik.com/vecteurs-premium/illustration-dessin-anime-services-change-devises-mondiales_2175-5010.jpg?w=900'); background-size: cover; background-position: center;">
+            <div class="overlay">
+            </div>
+            <p class="box-content-header">Echange</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="client" class="chat">
+      <app-chat></app-chat>
+    </div>
+  </div>
+</div>

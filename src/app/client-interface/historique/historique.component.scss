@@ -1,0 +1,132 @@
+.tab2 {
+  float: left;
+  margin: -20% 0 0 15%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 97%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+th {
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+td {
+  text-align: center;
+  border: 0.5px solid #00000051;
+}
+th {
+  padding: 10px;
+  color: white;
+  text-align: center;
+  background-color: #0f1c51;
+}
+
+th ::first-letter {
+  text-transform: uppercase;
+}
+
+tr>th:nth-child(1) {
+  border-top-left-radius: 8px;
+}
+
+tr>th:nth-child(11) {
+  border-top-right-radius: 8px;
+}
+.print-btn {
+  width: 150px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid rgb(213, 213, 213);
+
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.printer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 100%;
+}
+.printer-container {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.printer-container svg {
+  width: 100%;
+  height: auto;
+  transform: translateY(4px);
+}
+.printer-page-wrapper {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.printer-page {
+  width: 70%;
+  height: 10px;
+  border: 1px solid black;
+  background-color: white;
+  transform: translateY(0px);
+  transition: all 0.3s;
+  transform-origin: top;
+}
+.print-btn:hover .printer-page {
+  height: 16px;
+}
+
+.buttns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+tr>td:nth-child(1) {
+  width: 8%;
+
+}
+tr>td:nth-child(2) {
+  width: 10%;
+
+}
+tr>td:nth-child(3) {
+  width: 20%;
+
+}
+tr>td:nth-child(10) {
+  width: 10%;
+
+}
+tr>td:nth-child(4) {
+  width: 17%;
+
+}
+
+
+tr>td:nth-child(5),
+tr>td:nth-child(6),
+tr>td:nth-child(7),
+tr>td:nth-child(8),
+tr>td:nth-child(9) {
+  width: 5%;
+
+}
+

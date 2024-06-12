@@ -1,0 +1,55 @@
+<section class="hero">
+  <div class="slideshow">
+    <div class="overlay">{{ currentText }}</div>
+    <div class="overlay2">{{ scdtext }}</div>
+    <img [src]="currentImage" alt="Slideshow Image" class="img">
+    <div class="dot-container">
+      <span *ngFor="let image of images; let i = index" class="dot" [class.active]="currentIndex === i"
+        (click)="goToImage(i)"></span>
+    </div>
+  </div>
+</section>
+
+<div class="present">
+  <div class="custom-line"></div>
+  <img src="./assets/logo.png" class="assetlog">
+  <h4>TUNISIE SECURITE</h4>
+  <p>{{ deftxt }}</p>
+  <button class="plus_btn">
+    <span>Voir Plus</span>
+  </button>
+</div>
+<div class="bond">
+  <p>Ressources Humaines</p>
+  <ul>
+    <li class="fst">82 Agent de Transport</li>
+    <li>12 Agent de Maîtrise</li>
+    <li>6 Cadre</li>
+  </ul>
+</div>
+<section>
+  <div class="serv">
+    <div class="custom-line2"></div>
+    <h4>Nos Services</h4>
+    <div class="cards">
+    <div class="service-card" *ngFor="let service of services">
+      <img [src]="service.image" alt="{{ service.title }}">
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
+      <a class="read-more-btn" href="{{ service.link }}">EN SAVOIR PLUS</a>
+    </div>
+    </div>
+  </div>
+  <section class="Clients">
+    <div class="custom-line3"></div>
+    <h4>Les Principaux Clients De TUNISIE SECURITE</h4>
+    <div class="cardcli" #clientContainerRef (mousedown)="onMouseDown($event)" (mouseleave)="onMouseLeave()" (mouseup)="onMouseUp()" (mousemove)="onMouseMove($event)">
+      <div class="client-card" *ngFor="let client of clients">
+        <img [src]="client.image" alt="{{ client.title }}">
+      </div>
+    </div>
+  </section>
+
+
+
+

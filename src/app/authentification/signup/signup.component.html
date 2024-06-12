@@ -1,0 +1,120 @@
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <div class="page">
+          <mat-stepper class="step" [linear]="isLinear" #stepper>
+            <mat-step [formGroup]="firstFormGroup">
+              <form  [formGroup]="firstFormGroup">
+                <div class="dec">
+                  <h2>S'inscrire</h2>
+                  <p>Ces informations nous permettront d'en savoir plus sur vous.</p>
+                </div>
+                <ng-template matStepLabel>Step 1</ng-template>
+                <div class="row">
+                  <div class="gap">
+                    <div class="input-field">
+                      <svg class="qr" height="50" viewBox="-10 0 512 512" width="30" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/>
+                      </svg>
+                      <input formControlName="name" [(ngModel)]="client.name" class="input" type="text" required placeholder="Prenom" oninput="this.value = this.value.toLowerCase()">
+
+                    </div>
+                  </div>
+                  <div class="gap">
+                    <div class="input-field">
+                      <svg class="qr2" height="50" viewBox="0 0 560 400" width="80" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M512 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H512zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM208 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H304c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H176zM376 144c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376z"/>
+                      </svg>
+                      <input [(ngModel)]="client.lastname" oninput="this.value = this.value.toLowerCase()" name="lastname"  [ngModelOptions]="{standalone: true}" class="input" type="text" required placeholder="Nom"  >
+
+                  </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="row">
+                    <div class="gap">
+                      <div class="input-field">
+                        <svg class="qr" height="50" viewBox="-40 0 560 400" width="30" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/>                        </svg>
+                        <input [(ngModel)]="client.email" name="email"  [ngModelOptions]="{standalone: true}" required type="email" class="input" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="gap">
+                      <div class="input-field">
+                        <svg class="qr3" height="70" viewBox="-10 0 512 512" width="30" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M177.8 63.2l10 17.4c2.8 4.8 4.2 10.3 4.2 15.9v41.4c0 3.9 1.6 7.7 4.3 10.4c6.2 6.2 16.5 5.7 22-1.2l13.6-17c4.7-5.9 12.9-7.7 19.6-4.3l15.2 7.6c3.4 1.7 7.2 2.6 11 2.6c6.5 0 12.8-2.6 17.4-7.2l3.9-3.9c2.9-2.9 7.3-3.6 11-1.8l29.2 14.6c7.8 3.9 12.6 11.8 12.6 20.5c0 10.5-7.1 19.6-17.3 22.2l-35.4 8.8c-7.4 1.8-15.1 1.5-22.4-.9l-32-10.7c-3.3-1.1-6.7-1.7-10.2-1.7c-7 0-13.8 2.3-19.4 6.5L176 212c-10.1 7.6-16 19.4-16 32v28c0 26.5 21.5 48 48 48h32c8.8 0 16 7.2 16 16v48c0 17.7 14.3 32 32 32c10.1 0 19.6-4.7 25.6-12.8l25.6-34.1c8.3-11.1 12.8-24.6 12.8-38.4V318.6c0-3.9 2.6-7.3 6.4-8.2l5.3-1.3c11.9-3 20.3-13.7 20.3-26c0-7.1-2.8-13.9-7.8-18.9l-33.5-33.5c-3.7-3.7-3.7-9.7 0-13.4c5.7-5.7 14.1-7.7 21.8-5.1l14.1 4.7c12.3 4.1 25.7-1.5 31.5-13c3.5-7 11.2-10.8 18.9-9.2l27.4 5.5C432 112.4 351.5 48 256 48c-27.7 0-54 5.4-78.2 15.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/>                  </svg>
+                            <input formControlName="password" [(ngModel)]="client.password" name="password" type="password" class="input" placeholder="Password">
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+                <div class="but1">
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+                <div class="acc">
+                  <a href="/"><p>Retour Ã  la page d'accueil </p></a>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Step 2</ng-template>
+
+                <div class="input-field">
+                  <svg class="qr" height="50" viewBox="-40 0 512 512" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 64C16 28.7 44.7 0 80 0H304c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H80c-35.3 0-64-28.7-64-64V64zM144 448c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16s-7.2-16-16-16H160c-8.8 0-16 7.2-16 16zM304 64H80V384H304V64z"/>                        </svg>
+                  <input [(ngModel)]="client.phone" name="phone" required type="number"  [ngModelOptions]="{standalone: true}" class="input" placeholder="Numero">
+                </div>
+                <div class="input-field">
+                  <svg class="qr3" height="70" viewBox="-10 0 512 512" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M177.8 63.2l10 17.4c2.8 4.8 4.2 10.3 4.2 15.9v41.4c0 3.9 1.6 7.7 4.3 10.4c6.2 6.2 16.5 5.7 22-1.2l13.6-17c4.7-5.9 12.9-7.7 19.6-4.3l15.2 7.6c3.4 1.7 7.2 2.6 11 2.6c6.5 0 12.8-2.6 17.4-7.2l3.9-3.9c2.9-2.9 7.3-3.6 11-1.8l29.2 14.6c7.8 3.9 12.6 11.8 12.6 20.5c0 10.5-7.1 19.6-17.3 22.2l-35.4 8.8c-7.4 1.8-15.1 1.5-22.4-.9l-32-10.7c-3.3-1.1-6.7-1.7-10.2-1.7c-7 0-13.8 2.3-19.4 6.5L176 212c-10.1 7.6-16 19.4-16 32v28c0 26.5 21.5 48 48 48h32c8.8 0 16 7.2 16 16v48c0 17.7 14.3 32 32 32c10.1 0 19.6-4.7 25.6-12.8l25.6-34.1c8.3-11.1 12.8-24.6 12.8-38.4V318.6c0-3.9 2.6-7.3 6.4-8.2l5.3-1.3c11.9-3 20.3-13.7 20.3-26c0-7.1-2.8-13.9-7.8-18.9l-33.5-33.5c-3.7-3.7-3.7-9.7 0-13.4c5.7-5.7 14.1-7.7 21.8-5.1l14.1 4.7c12.3 4.1 25.7-1.5 31.5-13c3.5-7 11.2-10.8 18.9-9.2l27.4 5.5C432 112.4 351.5 48 256 48c-27.7 0-54 5.4-78.2 15.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/>                  </svg>
+                    <select formControlName="location" class="input opt" required>
+                      <option value="" disabled selected>Choisir une Region</option>
+                      <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+                    </select>
+                </div>
+                <div class="but2">
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Step 3</ng-template>
+              <form   (ngSubmit)="register()" [formGroup]="thirdFormGroup">
+                <div class="input-field">
+                  <svg class="qr" height="50" viewBox="-10 0 512 512" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M64 48c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16h80V400c0-26.5 21.5-48 48-48s48 21.5 48 48v64h80c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64zM0 64C0 28.7 28.7 0 64 0H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm88 40c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H104c-8.8 0-16-7.2-16-16V104zM232 88h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H232c-8.8 0-16-7.2-16-16V104c0-8.8 7.2-16 16-16zM88 232c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H104c-8.8 0-16-7.2-16-16V232zm144-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H232c-8.8 0-16-7.2-16-16V232c0-8.8 7.2-16 16-16z"/>                  </svg>
+                  <input  name="code" id="code" type="text" class="input" placeholder="Societe">
+                </div>
+                <div class="input-field">
+                  <svg class="qr" height="50" viewBox="-10 0 512 512" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>                  </svg>
+                  <input  name="code" id="code" type="text" class="input" placeholder="Location">
+                </div>
+                <div class="but2">
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button  mat-button type="submit">Register</button>
+
+                </div>
+              </form>
+            </mat-step>
+          </mat-stepper>
+        </div>
+      </div>
+    </div>
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <img src="/assets/logo.png" class="image" alt="" />
+        <div class="content">
+          <h3>Vous pouvez vous connecter ici </h3>
+          <button class="btn transparent" id="sign-up-btn" (click)="navigateToLogin()">
+            Sign In
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

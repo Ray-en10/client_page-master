@@ -1,0 +1,48 @@
+<div class="page">
+  <nav>
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <div *ngIf="isClient" class="chat">
+      <app-chat></app-chat>
+    </div>
+  </nav>
+  <div class="profile-container">
+    <h2>Profile Information</h2>
+    <form (ngSubmit)="saveChanges()">
+      <div *ngIf="isClient">
+        <label for="code">Code:</label>
+        <input [(ngModel)]="user.code" name="code" id="code" readonly>
+
+        <label for="name">Prénom:</label>
+        <input [(ngModel)]="user.name" name="name" id="name">
+
+        <label for="lastname">Nom:</label>
+        <input [(ngModel)]="user.lastname" name="lastname" id="lastname">
+
+        <label for="email">Email:</label>
+        <input [(ngModel)]="user.email" name="email" id="email">
+
+        <label for="phone">Numéro:</label>
+        <input [(ngModel)]="user.phone" name="phone" id="phone">
+      </div>
+      <div *ngIf="isResponsable">
+        <label for="codeResponsable">Code Responsable:</label>
+        <input [(ngModel)]="user.codeResponsable" name="codeResponsable" id="codeResponsable" readonly>
+
+        <label for="name">Prénom:</label>
+        <input [(ngModel)]="user.name" name="name" id="name">
+
+        <label for="lastName">Nom:</label>
+        <input [(ngModel)]="user.lastName" name="lastName" id="lastName">
+
+        <label for="email">Email:</label>
+        <input [(ngModel)]="user.email" name="email" id="email">
+
+        <label for="phone">Numéro:</label>
+        <input [(ngModel)]="user.phone" name="phone" id="phone">
+
+      </div>
+      <button type="submit" class="btn solid">Save Changes</button>
+    </form>
+  </div>
+</div>

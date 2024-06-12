@@ -1,0 +1,51 @@
+
+<div class="page">
+  <div>
+    <nav>
+      <app-navbar></app-navbar>
+      <app-sidebar></app-sidebar>
+      <app-chat></app-chat>
+    </nav>
+  <section class="tab2">
+    <h1>Votre demandes passe</h1>
+  <div *ngIf="appelfonds.length > 0; else noData">
+    <h2>Appel de fonds</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Num°</th>
+          <th>Code client</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>B50</th>
+          <th>B20</th>
+          <th>B10</th>
+          <th>B5</th>
+          <th>Monnaie</th>
+          <th>Etat</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appelfond of appelfonds">
+          <td>{{ appelfond.codeAP }}</td>
+          <td>{{ appelfond.client?.code || appelfond.responsable?.codeResponsable }}</td>
+          <td>{{ appelfond.client?.email || appelfond.responsable?.email}}</td>
+          <td>{{ appelfond.createdAt | date:'dd-MM-yyyy' }}</td>
+          <td>{{ appelfond.b50 }}</td>
+          <td>{{ appelfond.b20 }}</td>
+          <td>{{ appelfond.b10 }}</td>
+          <td>{{ appelfond.b5 }}</td>
+          <td>{{ appelfond.monnaie }}</td>
+          <td>{{ appelfond.state }}</td>
+          <td><button><span>Voir Plus</span></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noData>
+    <p>No appelfond data available.</p>
+  </ng-template>
+</section>
+</div>
+

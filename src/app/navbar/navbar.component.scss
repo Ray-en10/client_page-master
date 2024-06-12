@@ -1,0 +1,219 @@
+.utility {
+  margin-right: 4rem;
+  position: relative;
+
+}
+
+.log {
+  display: inline-block;
+  border-radius: 7px;
+  border: none;
+  background: #1875FF;
+  color: white;
+  font-family: inherit;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0px 12px 10px -8px #1875FF;
+  width: 10em;
+  padding: 1em;
+  transition: all 0.4s;
+  cursor: pointer;
+
+  span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+
+    &:after {
+      content: 'nous';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.7s;
+    }
+  }
+
+  &:hover span {
+    padding-right: 3.55em;
+  }
+
+  &:hover span:after {
+    opacity: 4;
+    right: 0;
+  }
+
+}
+
+.login-card {
+  position: absolute;
+  z-index: 1;
+  width: 230px;
+  height: 180px;
+  margin: 1rem -3.2rem 0rem;
+  background-color: #f2f2f2;
+  border-radius: 25px;
+  box-shadow: 2px 2px 15px rgb(193, 193, 193);
+  display: none;
+  padding-top: 0.1rem;
+
+  &.show {
+    z-index: 2;
+    display: block;
+  }
+
+  .instruction-text {
+    color: rgb(66, 65, 65);
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+    padding-left: 0.7rem;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .normal-signin {
+    padding: 8px;
+    font-size: 17px;
+    width: 70%;
+    margin-top: 25px;
+    margin-left: 37px;
+    border: 2px solid transparent;
+    border-radius: 5em;
+    background-color: #1b77da;
+    color: #f2f2f2;
+    font-weight: bold;
+    font-family: sans-serif;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: transparent;
+      color: #1b77da;
+      border: 2px solid #1b77da;
+    }
+  }
+
+  .create-account {
+    padding: 10px;
+    font-size: 17px;
+    width: 70%;
+    margin-top: 5px;
+    margin-left: 37px;
+    margin-bottom: 5px;
+    border: 2px solid transparent;
+    border-radius: 5em;
+    background-color: #e8e8e8;
+    color: #1b77da;
+    font-weight: bold;
+    font-family: sans-serif;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: transparent;
+      color: #1b77da;
+      border: 2px solid #1b77da;
+    }
+  }
+}
+
+
+
+header {
+  height: auto;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+}
+
+nav {
+  color: var(--text-01);
+  font-weight: 600;
+  height: 90px;
+  background: var(--light-01);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 var(--pg-margin);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+nav .navigation-menu>li:hover {
+  color: #0647aa;
+}
+
+nav ul.navigation-menu {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  position: relative;
+  top: 0;
+}
+
+nav .navigation-menu a {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--text-01);
+
+}
+
+nav .navigation-menu>li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*    justify-items: center;*/
+}
+
+nav .navigation-menu>li>a {
+  position: relative;
+  padding: 0 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.subli {
+  margin: 0.5rem 0 1rem 0rem;
+}
+
+
+nav .navigation-menu>li:hover ul.subnav {
+  visibility: visible;
+  opacity: 1;
+  top: 50px;
+  margin-left: 1.5rem;
+
+}
+
+.subnav>ul>li :hover {
+  color: darkblue;
+}
+
+nav .navigation-menu>li>ul.subnav {
+  border: 1px rgba(0, 0, 0, 0.179) solid;
+  background-color: rgb(24, 28, 46);
+  visibility: hidden;
+  color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px 20px 10px;
+  z-index: 1;
+  list-style-type: none;
+}
+
+nav>#logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-gap: 8px;
+  line-height: 100%;
+  margin-left: 1.5rem;
+  margin-right: -1.5rem;
+}
