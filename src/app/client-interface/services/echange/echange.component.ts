@@ -6,6 +6,8 @@ import { EchangeService } from '../../../services/echange.service';
 import { CommonModule } from '@angular/common';
 import { Client } from '../../../models/client';
 import { Echange } from '../../../models/Echange';
+import { ClientService } from '../../../services/client.service';
+import { ResponsableService } from '../../../services/responsable.service';
 
 @Component({
   selector: 'app-echange',
@@ -15,14 +17,23 @@ import { Echange } from '../../../models/Echange';
   styleUrls: ['./echange.component.scss']
 })
 export class EchangeComponent implements OnInit {
+
   echangeForm: FormGroup;
   client!: Client | null;
   responsable!: Responsable | null;
+  showProfilePopup: boolean = false;
+  client1: any;
+  userName: string = '';
+  lastName: string = '';
+  email: string = '';
+  code: number = 0;
 
   constructor(
     private fb: FormBuilder,
     private echangeService: EchangeService,
-    private router: Router
+    private router: Router,
+    private clientService: ClientService,
+    private responsableService: ResponsableService,
   ) {
     this.echangeForm = this.fb.group({
       montant: ['', [Validators.required, Validators.min(0)]],
@@ -34,7 +45,36 @@ export class EchangeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.client = history.state.client;
+    if (this.client) {
+      const client = this.clientService.getClient();
+      this.userName = client?.name || '';
+      this.lastName = client?.lastname || '';
+      this.email = client?.email || '';
+      this.code = client?.code || 0;
+    } else {
+      console.error('No client data found');
+    }
     this.retrieveDataFromNavigationOrStorage();
+  }
+
+  toggleProfilePopup() {
+    this.showProfilePopup = !this.showProfilePopup;
+  }
+
+  goToProfile() {
+  }
+
+  Clientinfo(): void {
+    // Implement Clientinfo function
+  }
+
+  logout(): void {
+    // Clear local storage
+    localStorage.clear();
+    console.log('Local storage cleared');
+    // Navigate back to login page
+    this.router.navigate(['login']);
   }
 
   retrieveDataFromNavigationOrStorage() {
@@ -77,8 +117,13 @@ export class EchangeComponent implements OnInit {
         state: this.echangeForm.get('state')?.value,
         livrer: this.echangeForm.get('livrer')?.value,
         client: this.client ? { code: this.client.code! } : null,
-        responsable: this.responsable ? { id: this.responsable.id! } : null
+        responsable: this.responsable ? {
+          id: this.responsable.id!,
+          codeResponsable: this.responsable.codeResponsable!
+        } : null
       };
+
+      console.log('Echange Data:', echangeData); // Debugging line
 
       this.echangeService.saveEchange(echangeData).subscribe(
         (response) => {

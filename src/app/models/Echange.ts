@@ -1,7 +1,7 @@
 export interface Echange {
   codeEchange?: number;
-  client?: { code: string } | null;
-  responsable?: { id: number } | null;
+  client?: any;
+  responsable?: any;
   createdAt?: Date;
   montant: number;
   state: string;
